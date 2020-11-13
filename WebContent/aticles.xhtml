@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<f:view>
+	<head>
+<title>Articles</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
+	<body>
+	<h:form>
+           <h1> Ajouter un article </h1>
+               Nom: 
+<h:inputText id="nom" required="true" style="margin-right:40px; margin-left:50px"
+				requiredMessage="Saisissez le nom  !">
+				
+			</h:inputText>
+			<h:message for="nom" style="color:red; font-weight:bold" />
+			<br />
+                Auteur:
+<h:inputText id="auteur" style="margin-left:15px; margin-right:25px"
+				required="true"
+				requiredMessage=" Saisissez un auteur !">
+				
+			</h:inputText>
+			<h:message for="auteur" style="color:red; font-weight:bold" />
+			<br />
+			 Date de publication:
+<h:inputText id="dateDePublication"  style="margin-left:15px; margin-right:25px"
+				required="true"
+				requiredMessage="Saisissez la date de publication !">
+				
+			</h:inputText>
+			<h:message for="dateDePublication" style="color:red; font-weight:bold" />
+			<br />
+			 
+
+			<h:commandButton value="Sauvegarder" action="#{athletesBean.add_athletes}" 
+				style="background-color: green; color:white;margin-right:200px;font-size:15px"/>
+
+		</h:form>
+		<h1>Liste des articles</h1>
+		<h:form>
+			<h:dataTable value="#{athletesBean.get_all_athletes}" var="cat">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{cat.id}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nom</f:facet>	
+					#{cat.nom}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Auteur</f:facet>
+					#{cat.auteur}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Date de publication</f:facet>
+					#{cat.dateDePublication}
+				</h:column>
+				
+				
+
+			</h:dataTable>
+			
+		</h:form>
+
+	</body>
+</f:view>
+</html>
